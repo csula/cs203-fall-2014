@@ -61,9 +61,42 @@ String second = myList.get(1);
 
 <img src="genericmethod.png"> <br/>
 
+<p><b>Note:</b> To define a generic type for a class, place it after the class name, such as GenericStack&lt;E&gt;. To define a generic type for a method, place the generic type before the method return type, such as &lt;E&gt; void max(E o1, E o2). </p>
+
+<h3>Bounded versus Unbounded Generic Type</h3>
+
+<img src="bounded.png"> <br/>
+
+<p>Unbounded generics imply that the generic type <em>E</em> extends the <em>Object</em>, thus unbounded.  </p>
+
+<div class="code"><pre>
+public static <E extends Object> boolean isAlive() { ... }
+</pre></div>
+
 <h3> Generics and Wild Card</h3>
 
+<img src="wildcard.png"> <br/>
+
+<p>Below is a slightly more complicated case of <em>super</em> wildcard.</p>
+
+<img src="superwildcard.png"> <br/>
+
+<p>The inheritance relationship involving generic types and wildcard types is summarized  below.  In this figure, A and B represent classes or interfaces, and E is a generic type parameter.</p>
+
+<img src="genericwildcardtypes.png"> <br/>
+
 <h3> Erasure Type</h3>
+
+<p>The compiler uses the generic type information to compile the code, but erases it afterward. Thus, the generic infor- mation is not available at runtime. This approach enables the generic code to be backward compatible with the legacy code that uses raw types.</p>
+
+<p>There are limitations with erasure type wrg to generics:</p>
+
+<ol>
+  <li>Cannot Use new E()</li>
+  <li>Cannot Use new E[]</li>
+  <li>A Generic Type Parameter of a Class Is Not Allowed in a Static Context</li> 
+  <li>Exception Classes Cannot Be Generic</li>
+</ol>
 
 <h2>Lab Exercises</h2>
 
@@ -71,6 +104,8 @@ String second = myList.get(1);
 
 <ol>
   <li>Implement a Generic Queue class.</li> 
+  <li>Use generics to implement a container that finds the max and min values for the Generic Queue class.</li>
+  <li>Implement a method that shuffles the Generic Queue that you've created above.</li>
 </ol>
 
 </div>
