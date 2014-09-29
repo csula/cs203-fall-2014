@@ -2,34 +2,82 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>CS203: Programming with Data Structure</title>
-<style type="text/css">
-#content {
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
-}
-div.code {
-    font-family: courier, monospace;
-    font-size: 16px;
-    background-color: #EEE;
-    white-space: pre-wrap;
-    margin: 20px 100px 20px 20px;
-    padding: 10px;
-}
-div.change {
-    color: green;
-}
-</style>
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <div id="content">
 
-<h1>CS203: Programming with Data Structure</h1>
+<h1>S203: Programming with Data Structure</h1>
 
-<h2>Lecture 01</h2>
+<h2>Lecture 1</h2>
+
+<p>Reading assignment: chapter 19</p>
+
+<h3>Lesson Objectives</h3>
+<ul>
+   <li>To descriibe the benefits of generics </li>
+   <li>To use generic classes and interfaces </li>
+   <li>To define generic classes and interfaces </li>
+   <li>To explain why generic types can improve reliability and readability </li>
+   <li>To define and use generic methods and bounded generic types </li>
+   <li>To develop a generic sort method to sort an array of Comparable
+objects </li>
+   <li>To explain why wildcard generic types are necessary </li>
+   <li>To describe generic type erasure and list certain restrictions and limitations on generic types caused by type erasure </li>
+</ul>
+
+<h3>Generics Overview</h3>
+
+<p>Generics let you parameterize types.  The key benefit of generics is to enable errors to be detected at compile time rather than at runtime. A generic class or method permits you to specify allowable types of objects that the class or method can work with. If you attempt to use an incompatible object, the compiler will detect that error.</p>
+
+<h3>Examples of Generics in Action</h3>
+
+<p><b>Comparable before JDK 1.5 and after JDK 1.5</b></p>
+<img src="comparable.png"> <br/>
+
+<p><b>UML Class Diagram of an ArrayList</b></p>
+<img src="arraylist.png"> <br/>
+
+<div class="code"><pre>
+ArrayList<...> myList = new ArrayList<...>()
+</pre></div>
+
+<p>To create an array of Strings:</p>
+<div class="code"><pre>
+ArrayList<String> myList = new ArrayList<String>();
+myList.add("cookies");
+myList.add("milk");
+String second = myList.get(1);
+</pre></div>
+
+<p>Note that casting (in the above example) is no longer required.</p>
+
+<h3>Roll our own Generic Class</h3>
+
+<img src="genericstack.png"> <br/>
+
+<h3>Roll our own Generic Method</h3>
+
+<img src="genericmethod.png"> <br/>
+
+<h3> Generics and Wild Card</h3>
+
+<h3> Erasure Type</h3>
+
+<h2>Lab Exercises</h2>
+
+<p>For each of the following exercises, practice developing and running your program with Eclispe.  Note that the lab assignments are not graded.</p>
+
+<ol>
+  <li>Implement a Generic Queue class.</li> 
+</ol>
 
 </div>
+
+<div id="footer">
+All illustrations are courtesy of Y. Daniel Liang's <em>Introduction to Java Programming, 10e</em>.
+</div>
+
 </body>
 </html>
