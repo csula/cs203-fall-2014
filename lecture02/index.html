@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>CS203: Programming with Data Structure</title>
+<link rel="stylesheet" href="../css/style.css">
+
+  <!-- mathjax -->
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+<body>
+
+<div id="content">
+
+<h1>CS203: Programming with Data Structure</h1>
+
+<h2>Lecture 2</h2>
+
+<p>Reading assignment: chapter 18</p>
+
+<h3>Lesson Objectives</h3>
+<ul>
+   <li>To describe what a recursive method is and the benefits of using recursion </li>
+   <li>To develop recursive methods for recursive mathematical functions </li>
+   <li>To explain how recursive method calls are handled in a call stack </li>
+   <li>To solve problems using recursion </li>
+   <li>To use an overloaded helper method to design a recursive method
+</li>
+   <li>To discover the relationship and difference between recursion and iteration </li>
+   <li>To know tail-recursive methods and why they are desirable </li>
+</ul>
+
+<h3>What is Recursion?</h3>
+
+<p>Recursion is a technique that leads to elegant solutions to problems that are difficult to program using simple loops.</p>
+
+<p>Recursive methods are methods that invoke themselves.</p>
+
+<h3>Compute Factorial</h3>
+
+<p>Let us compute $f(n) = n!$ </p>
+
+<img src="factorial.png" /> <br/>
+
+<p>Note that the <em>base case</em> are also known as the <em>stopping condition</em>.</p>
+
+<h3>Thinking Recursion</h3>
+
+<p>All recursive methods have the following characteristics:</p>
+
+<ul> 
+  <li>The method is implemented using an if-else or a switch statement that leads to different cases.</li>
+  <li>One or more base cases (the simplest case) are used to stop recursion.</li>
+  <li>Every recursive call reduces the original problem, bringing it increasingly closer to a base case until it becomes that case.</li>
+</ul>
+
+<p>To solve a problem using recursion, you break it into subproblems. Each sub-problem is the same as the original problem but smaller in size. You can apply the same approach to each subproblem to solve it recursively. </p>
+
+<h3>Recursive Helper Methods</h3>
+
+<p>Sometimes you can find a solution to the original problem by defining a recursive function to a problem similar to the original problem. This new method is called a recursive helper method. The original problem can be solved by invoking the recursive helper method.</p>
+
+<img src="palindrome.png" /> <br />
+
+<p>In the above example <b>isPalindrome(...)</b> has two function signatures, the second method is said to be the "helper method" to assist the first method by overloading its parameters.</p>
+
+<h3>Recursion vs. Iteration</h3>
+
+<p>Recursion is a loops without the repitition of a control statement.
+  Here are some characteristics of recursion (when comparing with iterations):</p>
+
+<ul>
+  <li>All recursive algorithm can be solved nonrecursively with iterations.</li>
+  <li>Recursions has overheads because entry into methods require new scope, thus overheads.</li>
+  <li>Recursion can help obtain clear, simple solution for an inherently recursive problem that would otherwise be difficult to obtain. </li>
+  <li>Recursion is often more elegant.</li>
+</ul>
+
+<h3>Tail Recursion</h3>
+
+<p>Tail recursion is an different approach to recursion.  The general
+  idea is to improve performance.  Tail recursion occurs when there
+  is no more pending operations when returning from a recursive
+  function call.</p>
+
+<img src="tailrecursion.png" /> <br/>
+
+<p> Let's transform the factorial example from non-tail to tail
+  recursive method.</p>
+
+<img src="factorial.png" /> <br/>
+
+<img src="factorial2.png" /> <br/>
+
+<h2>Lab Exercises</h2>
+
+<p>For each of the following exercises, practice developing and running your program with Eclispe.  Note that the lab assignments are not graded.</p>
+
+<ol>
+  <li>Write a recursive mathematical definition for computing $x^n$ for a positive integer $n$ and a real number $x$.  Then write a corresponding Java program.</li> 
+  <li>Write a recursive method <b>reverseDisplay(String s)</b> that reverses the order of $s$.</li>
+  <li>Write a recursive method <b>reverseDisplay(int k)</b> that reverses digit of $k$.</li>
+</ol>
+
+</div>
+
+<div id="footer">
+All illustrations are courtesy of Y. Daniel Liang's <em>Introduction to Java Programming, 10e</em>.
+</div>
+
+</body>
+</html>
