@@ -39,10 +39,6 @@ objects </li>
 <p><b>UML Class Diagram of an ArrayList</b></p>
 <img src="arraylist.png"> <br/>
 
-<div class="code"><pre>
-ArrayList<...> myList = new ArrayList<...>()
-</pre></div>
-
 <p>To create an array of Strings:</p>
 <div class="code"><pre>
 ArrayList<String> myList = new ArrayList<String>();
@@ -53,6 +49,10 @@ String second = myList.get(1);
 
 <p>Note that casting (in the above example) is no longer required.</p>
 
+<div class="code"><pre>
+ArrayList<...> myList = new ArrayList<...>()
+</pre></div>
+
 <h3>Roll our own Generic Class</h3>
 
 <img src="genericstack.png"> <br/>
@@ -61,7 +61,16 @@ String second = myList.get(1);
 
 <img src="genericmethod.png"> <br/>
 
-<p><b>Note:</b> To define a generic type for a class, place it after the class name, such as GenericStack&lt;E&gt;. To define a generic type for a method, place the generic type before the method return type, such as &lt;E&gt; void max(E o1, E o2). </p>
+<ul>
+  <li>To define a generic type for a class, place it after the class name, such as GenericStack&lt;E&gt;.</li>
+   <li> To define a generic type for a method, place the generic type before the method return type, such as &lt;E&gt; void max(E o1, E o2).
+</ul>
+
+<div class="code"><pre>
+public class ArrayList< K > {
+  public static < E > void ArrayList(E e1) { }
+}
+</pre></div>
 
 <h3>Bounded versus Unbounded Generic Type</h3>
 
@@ -87,9 +96,9 @@ public static <E extends Object> boolean isAlive() { ... }
 
 <h3> Erasure Type</h3>
 
-<p>The compiler uses the generic type information to compile the code, but erases it afterward. Thus, the generic infor- mation is not available at runtime. This approach enables the generic code to be backward compatible with the legacy code that uses raw types.</p>
+<p>The compiler uses the generic type information to compile the code, but erases it afterward. Thus, the generic information is not available at runtime. This approach enables the generic code to be backward compatible with the legacy code that uses raw types.</p>
 
-<p>There are limitations with erasure type wrg to generics:</p>
+<p>There are limitations with erasure type with regards to generics:</p>
 
 <ol>
   <li>Cannot Use new E()</li>
