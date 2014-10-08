@@ -3,6 +3,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>CS203: Programming with Data Structure</title>
 <link rel="stylesheet" href="../css/style.css">
+  <!-- mathjax -->
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
 </head>
 <body>
 
@@ -14,13 +25,60 @@
 
 <h3>Background</h3>
 
-<p>This assignment will require that you put together the tools from the first two lab exercises to build our first model for a road network.</p>
+<p>This assignment will require that you put together the various parts from the first two lab exercises to build the first model of our road network.</p>
 
 <h3>Programming Task</h3>
 
+<p>Write a Java program that does the following:</p>
+
+<ol>
+  <li>Read in road network information from a text file (<b>road.txt</b>)</li>
+  <li>Read in cellphone tower information from a text file (<b>tower.txt</b>)</li>
+  <li>Generate 2D drawing (<b>map.png</b>) of the model conveying the following:
+     <ol>
+       <li>The road network and cellphone towers</li>
+       <li>The signal strength eminating from each tower</li>
+     </ol>
+  <li>Generate a text report (<b>report.txt</b>) of the model</li>
+</ol>
+
+<p>Format for road network information:</p>
+
+<div class="code"><pre>
+nodeId  x  y
+</pre></div>
+
+<p>Where:</p>
+<ul>
+  <li>$nodeId$ is a unique location identifier</li>
+  <li>$x$ and $y$ are longitude and latitude respectively</li>
+</ul>
+
+<p>Format for cellphone tower location:</p>
+
+<div class="code"><pre>
+towerId  x  y
+</pre></div>
+
+<p>Where:</p>
+<ul>
+  <li>$towerId$ is a unique location identifier</li>
+  <li>$x$ and $y$ are longitude and latitude respectively</li>
+</ul>
+
 <h3>Analysis Task</h3>
 
+<p>There is no analysis report required for this assignment.  We will analyze performance and algorithm strategy in future assignments.</p>
+
 <h3>Submission Guide</h3>
+
+<p>Please submit all your java source code and a runable jar file (<b>hw1.jar</b>).  It is highly recommended that you test your java program from the command line as follower:</p>
+
+<div class="code"><pre>
+java -jar hw1.jar road.txt tower.txt map.png report.txt
+</pre></div>
+
+<p>If everything works as expected, then your program should generate the files as specfied.</p>
 
 <div id="footer">
   (C) 2014 John J. Tran
