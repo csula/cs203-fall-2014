@@ -26,11 +26,11 @@ Goal: rewrite the first lab assignment so that we'd decouple the data and functi
 * `createBunchOfObjectsRecursively()` this function is considered a factory class that generates a container `BunchOfObjects` class
 * `drawBunchOfObjects()` this function 'visits' each of the objects contained in the `BunOfObject` class and call the object's native draw method (you'll need to implement this method)
 
-`App.java` is the main application
+`App.java` is the main application:
+
 1. Line 5: the factory method `createBunchOfObjectsRecursively`.  You will need to modify this function so that it recursively creates nested square objects
 2. Line 10: this method visit all members of the `basket` and calls each member's `draw()` method
 3. Line 15: a `BunchOfObjects` generic container object that parameterizes `square` is created 
 4. Line 17: optional print method
-
 
 Note that You will need to modify `Square.java`, `BunchOfObjects.java`, and `GeometricObject.java`.
