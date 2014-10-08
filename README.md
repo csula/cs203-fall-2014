@@ -3,6 +3,22 @@ cs203-fall-2014
 
 Programming with Data Structure Fall 2014
 
+# Lab 2
+
+Goal: rewrite the first lab assignment so that we'd decouple the data and functionalities.  Your task is to modify: 
+
+* `createBunchOfObjectsRecursively()` this function is considered a factory class that generates a container `BunchOfObjects` class
+* `drawBunchOfObjects()` this function 'visits' each of the objects contained in the `BunOfObject` class and call the object's native draw method (you'll need to implement this method)
+
+`App.java` is the main application:
+
+1. Line 5: the factory method `createBunchOfObjectsRecursively`.  You will need to modify this function so that it recursively creates nested square objects
+2. Line 10: this method visit all members of the `basket` and calls each member's `draw()` method
+3. Line 15: a `BunchOfObjects` generic container object that parameterizes `square` is created 
+4. Line 17: optional print method
+
+Note that You will need to modify `Square.java`, `BunchOfObjects.java`, and `GeometricObject.java`.
+
 # Lab 1
 
 Goal: Write a Java program that recursively place draw boxes on to a two dimensional plane.  The program should work as followed:
@@ -19,18 +35,3 @@ The `RSquare.java` file requires that you consider the following:
 1. Lines 16 - 19: modify so that the correct information can be passed on to the child box 
 2. Line 20: the recurisve call -- this should match up with the parameters listed in line 7
 
-# Lab 2
-
-Goal: rewrite the first lab assignment so that we'd decouple the data and functionalities.  Your task is to modify: 
-
-* `createBunchOfObjectsRecursively()` this function is considered a factory class that generates a container `BunchOfObjects` class
-* `drawBunchOfObjects()` this function 'visits' each of the objects contained in the `BunOfObject` class and call the object's native draw method (you'll need to implement this method)
-
-`App.java` is the main application:
-
-1. Line 5: the factory method `createBunchOfObjectsRecursively`.  You will need to modify this function so that it recursively creates nested square objects
-2. Line 10: this method visit all members of the `basket` and calls each member's `draw()` method
-3. Line 15: a `BunchOfObjects` generic container object that parameterizes `square` is created 
-4. Line 17: optional print method
-
-Note that You will need to modify `Square.java`, `BunchOfObjects.java`, and `GeometricObject.java`.
