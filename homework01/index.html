@@ -32,8 +32,8 @@
 <p>Write a Java program that does the following:</p>
 
 <ol>
-  <li>Read in road network information from a text file (<b>road.txt</b>)</li>
-  <li>Read in cellphone tower information from a text file (<b>tower.txt</b>)</li>
+  <li>Read the road network information from a text file (<b>road.txt</b>)</li>
+  <li>Read the cellphone tower information from a text file (<b>tower.txt</b>)</li>
   <li>Generate 2D drawing (<b>map.png</b>) of the model conveying the following:
      <ol>
        <li>The road network and cellphone towers</li>
@@ -42,29 +42,58 @@
   <li>Generate a text report (<b>report.txt</b>) of the model</li>
 </ol>
 
+<h4>Road Network</h4>
+
 <p>Format for road network information:</p>
 
 <div class="code"><pre>
-nodeId  x  y
+j  x  y
 </pre></div>
 
 <p>Where:</p>
 <ul>
-  <li>$nodeId$ is a unique location identifier</li>
+  <li>$j$ is a unique node identifier</li>
   <li>$x$ and $y$ are longitude and latitude respectively</li>
 </ul>
 
-<p>Format for cellphone tower location:</p>
+<p>Here is an example of an map file:</p>
+<div class="code"><pre>
+1 100.00 200.00
+2 101.02 201.22
+3 101.50 202.22
+</pre></div>
+
+<h4>Cell Tower Locations</h4>
+
+<p>The format for cellphone tower locations:</p>
 
 <div class="code"><pre>
-towerId  x  y
+k x y sigma
 </pre></div>
 
 <p>Where:</p>
 <ul>
-  <li>$towerId$ is a unique location identifier</li>
+  <li>$k$ is a unique tower location identifier</li>
   <li>$x$ and $y$ are longitude and latitude respectively</li>
+  <li>$\sigma$ is the signal strength</li>
 </ul>
+
+<p>Here is an example of a celltower file:</p>
+<div class="code"><pre>
+1 100.01 200.04 0.2
+2 100.50 200.20 0.1
+3 101.10 200.50 0.2
+</pre></div>
+
+<p>A few things to consider when implementing the code:</p>
+<ul>
+  <li>The drawing library <b>StdDraw.java</b> operates on a coordinate system that $[0,1]$ which means that you will have to scale and adjust corners accordingly.</li>
+  <li>You should rely on Object-Oriented techniques to help out with some of calculations, e.g. consider a <b>Point</b> class that computes and translates its longitude and latitude coordinate to <b>StdDraw</b> $(x,y)$ coordinate.</li>
+</ul>
+
+<h4>Report File</h4>
+
+<p>Your report file for this homework assignment is simple. Depending on the coverage of your cellphone tower placement, you record either "success" or "drop signal" in your report file.</p>
 
 <h3>Analysis Task</h3>
 
@@ -78,7 +107,7 @@ towerId  x  y
 java -jar hw1.jar road.txt tower.txt map.png report.txt
 </pre></div>
 
-<p>If everything works as expected, then your program should generate the files as specfied.</p>
+<p>If everything works as expected, then your program should generate the required files.</p>
 
 <div id="footer">
   (C) 2014 John J. Tran
