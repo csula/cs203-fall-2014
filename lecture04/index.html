@@ -10,22 +10,197 @@
 
 <h1>CS203: Programming with Data Structure</h1>
 
-<h2>Lecture 4</h2>
-
+<h2>Lecture 4 / Lists, Stacks, Queues, and Priority Queues </h2>
 <p>Reading assignment: chapter 20</p>
 
-<h3>Lesson Objectives</h3>
+<h2>Lesson Objectives</h2>
 <ul>
-  <li></li>
+  <li>To explore the relationship between interfaces and classes in the Java Collections Framework hierarchy </li>
+  <li>To use the common methods defined in the Collection interface for operating collections </li>
+  <li>To understand in detail how a linked-list works</li>
+  <li>To use the Iterator interface to traverse the elements in a collection </li>
+  <li>To use a foreach loop to traverse the elements in a collection </li>
+  <li>To explore how and when to use ArrayList or LinkedList to store
+a list of elements </li>
+  <li>To compare elements using the Comparable interface and the
+Comparator interface </li>
+  <li>To use the static utility methods in the Collections class for sorting, searching, shuffling lists, and finding the largest and smallest element in collections </li>
+  <li>To distinguish between Vector and ArrayList and to use the Stack class for creating stacks </li>
+  <li>To explore the relationships among Collection, Queue, LinkedList, and PriorityQueue and to create priority queues using the PriorityQueue class </li>
+  <li>To use stacks to write a program to evaluate expressions </li>
 </ul>
 
+<h3>Introduction</h3>
+
+<p>Java provides several more data structures that can be used to organize and manipu- late data efficiently. These are commonly known as Java Collections Framework. We will introduce the applications of lists, vectors, stacks, queues, and priority queues.</p>
+
+<h4>Collection</h4>
+
+<p>A collection is a container-like datastructure that holds data (any kind of data).</p>
+
+<p>The Java Collections Framework supports two types of containers:</p>
+<ul>
+  <li>One for storing a collection of elements is simply called a collection.</li>
+  <li>The other, for storing key/value pairs, is called a map (next lecture).</li>
+</ul>
+
+<p>We focus (for now) on these:</p>
+
+<ul>
+  <li><b>Sets</b> store a group of nonduplicate elements.</li>
+  <li><b>Lists</b> store an ordered collection of elements.</li>
+  <li><b>Stacks</b> store objects that are processed in a last-in, first-out fashion.</li>
+  <li><b>Queues</b> store objects that are processed in a first-in, first-out fashion.</li>
+  <li><b>PriorityQueues</b> store objects that are processed in the order of their priorities.</li>
+</ul>
+
+<p>How does all this fit into the Java Collection Framework?</p>
+
+<img src="collections.png" /><br />
+
+<p>How does one iterate or go through a collection?</p>
+
+<img src="iterator.png" /><br />
+
+<p>Example code of how iterators are used.</p>
+
+<img src="iterator2.png" /><br />
+
+<h3>Lists</h3>
+
+<p>The List interface extends the Collection interface and defines a collection for storing elements in a sequential order. To create a list, use one of its two concrete classes: ArrayList or LinkedList.</p>
+
+<p>ArrayList stores elements in an array. The array is dynamically created. If the capacity of the array is exceeded, a larger new array is created and all the elements from the current array are copied to the new array. <b>This is inefficient if you need to do lots of insertion or removal.</b></p>
+
+<p>LinkedList stores elements in a linked list.</p>
+
+<h4>Linked List</h4>
+
+<img src="linked_list.png" /><br />
+
+<div class="code"><pre>
+public class node {
+  String value;
+  node nextRef;
+}
+</pre></div>
+
+<p>To iterate through the linked list, we would need to traverse one node at a time:</p>
+
+<div class="code"><pre>
+  node ptr;
+  for (ptr = head; ptr != null; ptr = ptr->next) {
+     // data is now ptr.value;
+     System.out.println(ptr.value);
+  }
+</div>
+
+<p>Recall from our generic lecture, we can now use T.</p>
+
+<div class="code"><pre>
+public class node<T> {
+  T value;
+  node nextRef;
+}
+</pre></div>
+
+<h3>Comparable Interface</h3>
+
+<p>Comparator can be used to compare the objects of a class that doesn't implement Comparable.</p>
+
+<img src="comparator.png" /><br />
+
+<h3>Static methods for Collections</h3>
+
+<p>It's often the case that you need to use an existing method that solve a common problem when working with collections. We now define a number of these common used "patterns".</p>
+
+<h4>Sorting</h4>
+
+<div class="code"><pre>
+List<String> list = Arrays.asList("red", "green", "blue"); 
+Collections.sort(list);
+</pre></div>
+
+<div class="code"><pre>
+List<String> list = Arrays.asList("yellow", "red", "green", "blue"); 
+Collections.sort(list, Collections.reverseOrder()); 
+</pre></div>
+
+<h4>Searching</h4>
+
+<div class="code"><pre>
+List<Integer> list1 =
+   Arrays.asList(2, 4, 7, 10, 11, 45, 50, 59, 60, 66);
+System.out.println("Index: " + Collections.binarySearch(list1, 7));
+</pre></div>
+
+<h4>Shuffling</h4>
+
+<div class="code"><pre>
+List<String> list = Arrays.asList("yellow", "red", "green", "blue"); 
+Collections.shuffle(list);
+</pre></div>
+
+<h4>Copying</h4>
+
+<div class="code"><pre>
+List<String> list1 = Arrays.asList("yellow", "red", "green", "blue"); 
+List<String> list2 = Arrays.asList("white", "black"); 
+Collections.copy(list1, list2);
+</pre></div>
+
+<h4>Fill</h4>
+
+<div class="code"><pre>
+List<String> list = Arrays.asList("red", "green", "blue"); 
+Collections.fill(list, "black");
+</pre></div>
+
+<h4>Max and Min</h4>
+
+<div class="code"><pre>
+Collection<String> collection = Arrays.asList("red", "green", "blue"); 
+System.out.println(Collections.max(collection)); 
+System.out.println(Collections.min(collection));
+</pre></div>
+
+<h4>Disjoint</h4>
+
+<div class="code"><pre>
+Collection<String> collection1 = Arrays.asList("red", "cyan"); 
+Collection<String> collection2 = Arrays.asList("red", "blue"); 
+Collection<String> collection3 = Arrays.asList("pink", "tan"); 
+System.out.println(Collections.disjoint(collection1, collection2)); 
+System.out.println(Collections.disjoint(collection1, collection3));
+</pre></div>
+
+<h4>Frequency</h4>
+
+<div class="code"><pre>
+Collection<String> collection = Arrays.asList("red", "cyan", "red"); 
+System.out.println(Collections.frequency(collection, "red"));
+</pre></div>
+
+<h3>Vector and Stack classes</h3>
+
+<p>Vector is the same as ArrayList, except that it contains synchronized methods for accessing and modifying the vector. Synchronized methods can prevent data corruption when a vector is accessed and modified by two or more threads concurrently.</p>
+
+<p>The Stack class was introduced prior to Java 2. The methods shown in Figure 20.11 were used before Java 2. The empty() method is the same as isEmpty(). The peek() method looks at the element at the top of the stack without removing it. The pop() method removes the top element from the stack and returns it. The push(Object element) method adds the specified element to the stack. The search(Object element) method checks whether the specified element is in the stack.</p>
+
+<h3>Queues and Priority Queues</h3>
+
+<p>A queue is a first-in, first-out data structure. Elements are appended to the end of the queue and are removed from the beginning of the queue. In a priority queue, elements are assigned priorities. </p>
+
+<p>The PriorityQueue class implements a priority queue, as shown in Figure 20.14. By default, the priority queue orders its elements according to their natural ordering using Comparable. </p>
+
+<img src="priorityqueue.png" /><br />
 
 <h2>Lab Exercises</h2>
 
 <p>For each of the following exercises, practice developing and running your program with Eclispe.  Note that the lab assignments are not graded.</p>
 
 <ol>
-  <li></li> 
+  <li>Write a recursive algorithm that visits each of the node.</li> 
 </ol>
 
 </div>
