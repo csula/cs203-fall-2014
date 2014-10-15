@@ -3,6 +3,14 @@ cs203-fall-2014
 
 Programming with Data Structure Fall 2014
 
+# Lab 3
+
+The class `LinkedList` has an aggregious error.  Focus on identifying the error that can be found near lines 13-15.  
+
+Implement a `print(...)` method that traverse the linked list and print out each of the node's `val` data member.
+
+Update `RecursiveTraversal` by filling in the code where labelled `fill in something here`.  The idea here is to recursively traverse the `ArrayList<Square>` using an iterator.  Note that the recursion cannot alter `mylist`. 
+
 # Lab 2
 
 Goal: rewrite the first lab assignment so that we'd decouple the data and functionalities.  Your task is to modify: 
