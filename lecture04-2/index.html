@@ -13,20 +13,86 @@
 <h2>Lecture 4-2 / Composite Data Structure</h2>
 <p>Reading assignment: none</p>
 
+<h3>Introduction</h3>
+
 <h2>Lesson Objectives</h2>
 <ul>
-  <li> </li>
+  <li>Revisit Object-Oriented thinking to achieve abstract and encapsulation</li>
+  <li>Understand the notion of framework</li>
+  <li>Build complex data structure with collection of collections</li>
 </ul>
 
 <h3>Introduction</h3>
 
-<h2>Lab Exercises</h2>
+<p>Developing software these days often amounts to re-using or building on top of existing software.  These existing software are often modelled or described as <em>framework</em>.</p>
 
-<p>For each of the following exercises, practice developing and running your program with Eclispe.  Note that the lab assignments are not graded.</p>
+<p>How do <strong>framework</strong> and <strong>library</strong> differ?</p>
+
+<ul>
+  <li>A library solves a specific task or a set of specific tasks. </li>
+  <li>A framework enforces how an application or a set of applications behave and interact.</li>
+</ul>
+
+<p>Generally speaking, when writing software we try to build software on top of a framework.  The implication here is that the framework developer are "super smart" when in fact that might not always be the case.</p>
+
+<p><b>Good Framework</b>: should be simple and does not try to do too many things.</p>
+
+<p>So how do we look at data structure lessons (in this class) as a framework design?</p>
+
+<ul>
+  <li>We are not building a library for road and communication network</li>
+  <li>We are building both an application and a framework for future applications</li>
+  <li>Sometimes thinking framework is better than thinking application</li>
+</ul>
+
+<p><strong>Bottom Line</strong>: A framework is <em>extensible</em> where as a library is <em>restrictive</em>.
+
+<h3>Revisit Object-Oriented Programming</h3>
+
+<p>One of the core tenet's of object-oriented programming is <em>encapsulation</em>, in other words, <em>data- and action-hiding</em>.  For our project so far, we've introduced a few clases:</p>
+
+<ul>
+  <li>Point</li>
+  <li>Circle</li>
+</ul>
+
+<p>So far, a <em>Point</em> and a <em>Circle</em> do not convey information about a road.  So how does one connect the dots (no puns intended)?</p>
+
+<p>We can make an argument that a road is consisted of a set of points.  We can also say that a road is consist of a set of segments and a <em>segment</em> is consisted of two (or more) points.  What then is an <em>intersection</em>?</p>
+
+<div class="task">
+<p>Design a <strong>Road</strong> class, a <strong>segment</strong> class, and an <strong>Intersection</strong> class.  Your classes should utilize the containers (collection) that we've discussed in class.</p>
+</div>
+
+<p>In addition to designing the structure and behavior of the ojects, we need to look at how they interact.  What are the relationships between these classes?</p>
+
+<h3>Framework Building</h3>
+
+<p>Is there a method (or madness) to how one builds a framework?</p>
+
+<p>Yes!  Start with something (anything).  Trials and errors.  It should be noted that no one sits down and say, "I am going to build a framework today and it will <em>great</em>!"  Iteratively refined as we move forward.
+
+<p>Let's recap:</p>
 
 <ol>
-  <li>Write a recursive algorithm that visits each of the node.</li> 
+  <li>Design Road, Segment, and Intersection</li>
+  <li>Utilize container/collections</li>
+  <li>Define basic relationship between classes</li>
+  <li>Application flow (this is the <em>next</em> step)</li>
 </ol>
+
+<p>Note that step #4 above suggests that we are working toward <strong>one</strong> application.  This is perhaps the biggest mistake with framework development.  We are not working toward one application -- we're working toward many applications.</p>
+
+<p>So what are these <strong>applications</strong>? </p>
+
+<ol>
+  <li>Data acquisition: downloading and acquiring map and road network data</li>
+  <li>Infrastructure: we need to build our road network</li>
+  <li>Visualization: we need to illustrate (visually) our model</li>
+  <li>Computation: we need to run our model to computations of some flavor</li>
+</ol>
+
+<h3>Putting everything together: Complex Data Structure</h3>
 
 </div>
 

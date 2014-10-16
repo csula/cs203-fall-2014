@@ -24,3 +24,13 @@ div.code {
 div.change {
     color: green;
 }
+div.task {
+  padding: .0rem 1rem;
+  margin: .8rem 0;
+  color: #333; 
+  /* color: #7a7a7a; */
+  border-left: .25rem solid #e5e5e5;
+    /* color: #333; */
+    /* padding: 10px; */
+    /* background-color: #ddd; */
+}
