@@ -5,12 +5,11 @@ import java.util.ArrayList;
 public class BunchOfObjects<T extends GeometricObject> {
     private ArrayList<T> myList = new ArrayList<T>();
 
-    public void add(T o) {
-        myList.add( o );
+    public void add(T o) { /* do this at home */
+    	myList.add( o );
     }
 
-    public void clear() { 
-        /* do this at home */
+    public void clear() { /* do this at home */
     }
 
     public ArrayList<T> getAll() {
@@ -22,7 +21,7 @@ public class BunchOfObjects<T extends GeometricObject> {
     }
 
     public void print() {
-        /* optional for debugging */
+
     }
 
     public ArrayList<T> getSome(int level) {
