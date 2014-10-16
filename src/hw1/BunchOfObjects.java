@@ -6,7 +6,7 @@ public class BunchOfObjects<T extends GeometricObject> {
     private ArrayList<T> myList = new ArrayList<T>();
 
     public void add(T o) { /* do this at home */
-    	myList.add( o );
+        myList.add( o );
     }
 
     public void clear() { /* do this at home */
