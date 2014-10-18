@@ -20,10 +20,11 @@ Goal: rewrite the first lab assignment so that we'd decouple the data and functi
 
 `App.java` is the main application:
 
-1. Line 5: the factory method `createBunchOfObjectsRecursively`.  You will need to modify this function so that it recursively creates nested square objects
-2. Line 10: this method visit all members of the `basket` and calls each member's `draw()` method
-3. Line 15: a `BunchOfObjects` generic container object that parameterizes `square` is created 
-4. Line 17: optional print method
+1. Line 5: the factory method `createBunchOfObjectsRecursively`.  You will need to modify this method and treat it as a helper function 
+2. Line 10: Recursion meat and potato, modify so that it recursively creates nested square objects
+2. Line 16: this method visit all members of the `basket` and calls each member's `draw()` method
+3. Line 21: a `BunchOfObjects` generic container object that parameterizes `square` is created 
+4. Line 23: optional print method
 
 Note that You will need to modify `Square.java`, `BunchOfObjects.java`, and `GeometricObject.java`.
 

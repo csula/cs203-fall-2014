@@ -3,10 +3,16 @@ package lab2;
 public class App {
 
     static BunchOfObjects<Square> createBunchOfObjectsRecursively(int numLevel) {
-        /* do this at home: recursively */
+        /* This is a helper function */
         return null;
     }
 
+    static void createBunchOfObjectsRecursively(int numLevel, 
+        BunchOfObjects<Square> squares) {
+        
+        /* do this at home: recursively */
+    }
+    
     static void drawBunchOfObjects(BunchOfObjects<Square> basket) {
         /* do this at home */
     }
