@@ -1,7 +1,5 @@
 package lab3;
 
-import java.util.Iterator;
-
 class Square {
     double x, y, w;
     Square(double x,double y, double w) { 
