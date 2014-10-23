@@ -15,17 +15,93 @@
 
 <h2>Lesson Objectives</h2>
 <ul>
+  <li>To store unordered, nonduplicate elements using a set</li>
+  <li>To explore how and when to use HashSet, LinkedHashSet, or TreeSet to store a set of elements.
+  <li>To compare the performance of sets and lists</li>
+  <li>To tell the differences between Collection and Map and describe when and how to use HashMap, LinkedHashMap, or TreeMap to store values associated with keys</li>
 </ul>
 
 <h3>Introduction</h3>
 
-<h2>Lab Exercises</h2>
+<p>A set is an efficient data structure for storing and processing nonduplicate elements. A map is like a dictionary that provides a quick lookup to retrieve a value using a key.</p>
 
-<p>For each of the following exercises, practice developing and running your program with Eclispe.  Note that the lab assignments are not graded.</p>
+<div class="task">
+What are some examples of when we'd use a set?
+</div>
 
-<ol>
-  <li></li> 
-</ol>
+<p>You can create a set using one of its three concrete classes: HashSet, LinkedHashSet, or TreeSet.</p>
+
+<h4>HashSet</h4>
+
+<p>The HashSet class is a concrete class that implements Set. You can create an empty hash set using its no-arg constructor or create a hash set from an existing collection.</p>
+
+<p>If you construct a HashSet with a set <em>load factor</em>.  This determines the capacity of a set before allocating for more space.</p> 
+
+<div class="code"><pre>
+public class HashTest {
+  public static void main(String[] args) {
+    Set<String> set = new HashSet<String>();
+    set.add( "john" );
+    set.add( "mary" );
+
+    for (String s : set) {
+       System.out.println(s);
+    }
+  }
+}
+
+</div>
+
+<div class="task">
+Write a program to continuously generate for a random number between 1 and 100.  Do not stop until all values have been randomly generated.
+</div>
+
+<p> You can also interrogate a set for information. For example <strong>set.size()</strong>.</p>
+
+<div class="task">
+Using eclipse find out what are some of the useful set's methods.
+</div>
+
+<h4>LinkedHashSet</h4>
+
+<p>LinkedHashSet extends HashSet with a linked-list implementation that supports an order- ing of the elements in the set. The elements in a HashSet are not ordered, but the elements in a LinkedHashSet can be retrieved in the order in which they were inserted into the set.</p>
+
+<h4>TreeSet</h4>
+
+<p>If you require that access to a set based on a certain range or constraints, you can use TreeSet.  For example <strong>treeSet.first()</strong> and <strong>treeSet.last()</strong>.</p>
+
+<h3>Maps</H3>
+
+<p>A map is a container object that stores a collection of key/value pairs. It enables fast retrieval, deletion, and updating of the pair through the key. A map stores the values along with the keys. The keys are like indexes.</p>
+
+<img src="HashMap1.png" /> <br/>
+
+<h4>HashMap</h4>
+
+<p>A hash without concerning about the ordering.</p>
+
+<h4>LinkedHashMap</h4>
+
+<p>A hash without concerning about the ordering.</p>
+
+<h4>TreeHashMap</h4>
+
+<p>A hash that is efficient when you need traverse in order.</p>
+
+<div class="code"><pre>
+public class hashmap {
+  public static void main(String[] args) {
+     Hash<String, Integer> hash = new HashMap<String>();
+     hash.put("john", 20);
+  }
+}
+</pre></div>
+
+<p>So some of the most practical applications for hash maps include the ability to quickly look things up, e.g. a dictionary or a lookup table.</p>
+
+<div class="task">
+Redesign our homework assignment so that a roadnetwork can use road name as a hash key.
+</div>
 
 </div>
 
