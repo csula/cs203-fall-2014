@@ -36,6 +36,12 @@ public class LinkedList {
         // update this method so that it recursively print each of the 
         // elements in the linked list
 
+        if ( ptr == null ) { 
+            return;
+        } else {
+            System.out.println( ptr );
+            recursivePrint( ptr.next );
+        }
     }
 
     public int findPosition(String item) {
@@ -44,13 +50,28 @@ public class LinkedList {
         // update this method so it returns the correct position in the
         // linked list for the item 
 
+        Node<String> ptr = head;
+        while ( ptr != null ) {
+            if (ptr.value.equals(item)) {
+                break;
+            }
+            position++;
+            ptr = ptr.next;
+        }
+
         return position;
     }
 
     public String findLongestName() {
         String longestName = "";
-        
+
         // update this method so that it returns the longest name
+        Node<String> ptr = head;
+        while ( ptr != null ) {
+            if (longestName.length() < ptr.value.length())
+                longestName = ptr.value;
+            ptr = ptr.next;
+        }
 
         return longestName;
     }
