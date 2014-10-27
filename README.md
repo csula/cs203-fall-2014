@@ -3,6 +3,10 @@ cs203-fall-2014
 
 Programming with Data Structure Fall 2014
 
+# Lab 5
+
+We will now redo homework 1 using the generic data structure.
+
 # Lab 4
 
 `SampleHash.java` shows how to use the Java HashMap generic class.  You should be familiar with how to use a hash map as this is probably the single most important data structure in your computer science career.
