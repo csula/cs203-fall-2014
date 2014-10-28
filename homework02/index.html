@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>CS203: Programming with Data Structure</title>
+<link rel="stylesheet" href="../css/style.css">
+  <!-- mathjax -->
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+<body>
+
+<div id="content">
+
+<h1>CS203: Programming with Data Structure</h1>
+
+<h2>Homework 2</h2>
+
+<h3>Background</h3>
+
+<p>This assignment will require that you put together the various parts from the first two lab exercises to build the first model of our road network.</p>
+
+<h3>Programming Task</h3>
+
+<p>Write a Java program that does the following:</p>
+
+<ol>
+  <li>Read the road network information from a text file (<b>road.txt</b>)</li>
+  <li>Read the cellphone tower information from a text file (<b>tower.txt</b>)</li>
+  <li>Generate 2D drawing (<b>map.png</b>) of the model conveying the following:
+     <ol>
+       <li>The road network and cellphone towers</li>
+       <li>The signal strength eminating from each tower</li>
+     </ol>
+  <li>Generate a text report (<b>report.txt</b>) of the model</li>
+</ol>
+
+<h4>Road Network</h4>
+
+<p>Format for road network information:</p>
+
+<div class="code"><pre>
+j  x  y
+</pre></div>
+
+<p>Where:</p>
+<ul>
+  <li>$j$ is a unique node identifier</li>
+  <li>$x$ and $y$ are longitude and latitude respectively</li>
+</ul>
+
+<p>Here is an example of an map file:</p>
+<div class="code"><pre>
+1 100.00 200.00
+2 101.02 201.22
+3 101.50 202.22
+</pre></div>
+
+<h4>Cell Tower Locations</h4>
+
+<p>The format for cellphone tower locations:</p>
+
+<div class="code"><pre>
+k x y sigma
+</pre></div>
+
+<p>Where:</p>
+<ul>
+  <li>$k$ is a unique tower location identifier</li>
+  <li>$x$ and $y$ are longitude and latitude respectively</li>
+  <li>$\sigma$ is the signal strength</li>
+</ul>
+
+<p>Here is an example of a celltower file:</p>
+<div class="code"><pre>
+1 100.01 200.04 0.2
+2 100.50 200.20 0.1
+3 101.10 200.50 0.2
+</pre></div>
+
+<p>A few things to consider when implementing the code:</p>
+<ul>
+  <li>The drawing library <b>StdDraw.java</b> operates on a coordinate system that $[0,1]$ which means that you will have to scale and adjust corners accordingly.</li>
+  <li>You should rely on Object-Oriented techniques to help out with some of calculations, e.g. consider a <b>Point</b> class that computes and translates its longitude and latitude coordinate to <b>StdDraw</b> $(x,y)$ coordinate.</li>
+</ul>
+
+<h4>Report File</h4>
+
+<p>Your report file for this homework assignment is simple. Depending on the coverage of your cellphone tower placement, you record either "success" or "drop signal" in your report file.</p>
+
+<h3>Analysis Task</h3>
+
+<p>There is no analysis report required for this assignment.  We will analyze performance and algorithm strategy in future assignments.</p>
+
+<h3>Submission Guide</h3>
+
+<p>Please submit all your java source code and a runable jar file (<b>hw1.jar</b>).  It is highly recommended that you test your java program from the command line as follower:</p>
+
+<div class="code"><pre>
+java -jar hw1.jar road.txt tower.txt map.png report.txt
+</pre></div>
+
+<p>If everything works as expected, then your program should generate the required files.</p>
+
+<div id="footer">
+  (C) 2014 John J. Tran
+</div>
+
+</body>
+</html>
