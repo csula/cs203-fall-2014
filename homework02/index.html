@@ -25,16 +25,18 @@
 
 <h3>Background</h3>
 
-<p>This assignment will require that you put together the various parts from the first two lab exercises to build the first model of our road network.</p>
+<p>For the previous assignment, we've put together the "plumbing" required for our roadnetwork infrastructure.  For the most part you <em>should</em> be able to navigate and manipulate the road network asset.  For this assignment, we're going to take the next step, which is to put together an "end-to-end" product that can acquire data, manipulate (process) and render results (visualize).  On the surface, this task might seem daunting at first, but remember how we tackle the first homework assignment in class: we take one component at a time.</p>
+
+<p>With the website openstreetmap.org, we can easily obtain the road network information.  Your first non-programming task is to understand the data format that this website provides.  This requires that you (visit the site) and download/export a sample data file.  For more information on what the format look like take a look at my blog.  Next, you will need to parse this file and get to the required (relevant?) data.  This step goes hand in hand with the designing (modification) of your data composite data structure.  Let's take a look at a possible example how you might tackle this problem.</p>
 
 <h3>Programming Task</h3>
 
 <p>Write a Java program that does the following:</p>
 
 <ol>
-  <li>Read the road network information from a text file (<b>road.txt</b>)</li>
-  <li>Read the cellphone tower information from a text file (<b>tower.txt</b>)</li>
-  <li>Generate 2D drawing (<b>map.png</b>) of the model conveying the following:
+    <li>Read the road network information from an <strong>osm</strong> obtained from openstreetmap.org</li>
+    <li>Determine possible locations to place your cellphone towers such that coverage is maximized.</li>
+    <li>Generate 2D drawing (<b>map.png</b>) of the model conveying the following:
      <ol>
        <li>The road network and cellphone towers</li>
        <li>The signal strength eminating from each tower</li>
@@ -42,69 +44,59 @@
   <li>Generate a text report (<b>report.txt</b>) of the model</li>
 </ol>
 
-<h4>Road Network</h4>
+<h4>Cell Tower Placement</h4>
 
-<p>Format for road network information:</p>
+<p>We consider the following constraints when determining the placement of the cell towers.</p>
 
-<div class="code"><pre>
-j  x  y
-</pre></div>
-
-<p>Where:</p>
 <ul>
-  <li>$j$ is a unique node identifier</li>
-  <li>$x$ and $y$ are longitude and latitude respectively</li>
+  <li>Each tower can only be placed on a grid point in the <strong>osm</strong> file</li>
+  <li>Each point can only accomodate at most one tower</li>
+  <li>The best configuration for cell tower placement is chosen base best coverage result</li>
 </ul>
 
-<p>Here is an example of an map file:</p>
-<div class="code"><pre>
-1 100.00 200.00
-2 101.02 201.22
-3 101.50 202.22
-</pre></div>
+<p>Coverage rate is calculated as percentage of the road that has signal.  Consider the following example a road that has three segments and each segment is discretized into 100 points:</li>
 
-<h4>Cell Tower Locations</h4>
-
-<p>The format for cellphone tower locations:</p>
-
-<div class="code"><pre>
-k x y sigma
-</pre></div>
-
-<p>Where:</p>
 <ul>
-  <li>$k$ is a unique tower location identifier</li>
-  <li>$x$ and $y$ are longitude and latitude respectively</li>
-  <li>$\sigma$ is the signal strength</li>
+  <li>Segment $s_1$ has 25 discretization points without a signal</li>
+  <li>Segment $s_2$ has 50 discretization points without a signal</li>
+  <li>Segment $s_3$ has 100 discretization points wihtout a signal</li>
 </ul>
 
-<p>Here is an example of a celltower file:</p>
-<div class="code"><pre>
-1 100.01 200.04 0.2
-2 100.50 200.20 0.1
-3 101.10 200.50 0.2
-</pre></div>
+<p>The overall coverage for this road is:</p>
 
-<p>A few things to consider when implementing the code:</p>
-<ul>
-  <li>The drawing library <b>StdDraw.java</b> operates on a coordinate system that $[0,1]$ which means that you will have to scale and adjust corners accordingly.</li>
-  <li>You should rely on Object-Oriented techniques to help out with some of calculations, e.g. consider a <b>Point</b> class that computes and translates its longitude and latitude coordinate to <b>StdDraw</b> $(x,y)$ coordinate.</li>
-</ul>
+$$
+  C = \frac{75 + 50}{300} = 42 \%
+$$
+
+<p>The above example assumes that all segments are of the same length.  This not the case.  In fact, as we've demonstrated in class that using a fixed $K$ for discretization is not going to work for those segments are longer than others.  So let us consider a better model for discretization by fixing the distance between discretization points: $\delta = 0.001$.  This will invariably require that you rewrite (overide) the discretization method to take $\delta$ as an argument and that the value $K$ is calculated from the distance between two points.</p>
 
 <h4>Report File</h4>
 
-<p>Your report file for this homework assignment is simple. Depending on the coverage of your cellphone tower placement, you record either "success" or "drop signal" in your report file.</p>
+<p>Your report will include the following information:</p>
+
+<ul>
+  <li>Listing of the cell towers, their position, radius, and the roads they cover</li>
+  <li>The roads must be identified names</li>
+  <li>The final determination if the placement of the towers sufficient cover all roads</li>
+</ul>
 
 <h3>Analysis Task</h3>
 
-<p>There is no analysis report required for this assignment.  We will analyze performance and algorithm strategy in future assignments.</p>
+<p>In addition to writing the code, your team will run some experiments and perform analysis on your tower-placement algorithm. In particular please discuss the following:</p>
+
+<ul>
+  <li>What is the overall time complexity of your algorithm? Please use $O(cn^k)$ notation</li>
+  <li>You should run timing experiment to support claim above; for example if you claim $O(n)$ then show how your timing scale linearly as the number of points or cell tower grows</li>
+  <li>Run experiment by varying $\sigma = \{ 0.1, 0.2, 0.3, 0.4, 0.5 \}$ and try for each of the $\sigma$'s vary the number of towers to be placed from 3 to 7</li>
+</ul>
 
 <h3>Submission Guide</h3>
 
-<p>Please submit all your java source code and a runable jar file (<b>hw1.jar</b>).  It is highly recommended that you test your java program from the command line as follower:</p>
+<p>Please submit all your java source code and a runable jar file (<b>hw2.jar</b>).  It is highly recommended that you test your java program from the command line as follower:</p>
 
 <div class="code"><pre>
-java -jar hw1.jar road.txt tower.txt map.png report.txt
+java -jar hw2.jar -osm road.osm -out map.png \
+   -report report.txt -cellconfig cell.cfg
 </pre></div>
 
 <p>If everything works as expected, then your program should generate the required files.</p>
