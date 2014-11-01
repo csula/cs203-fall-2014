@@ -23,6 +23,8 @@
 
 <h2>Homework 2</h2>
 
+<p>Revision: 1.0</p>
+
 <h3>Background</h3>
 
 <p>For the previous assignment, we've put together the "plumbing" required for our roadnetwork infrastructure.  For the most part you <em>should</em> be able to navigate and manipulate the road network asset.  For this assignment, we're going to take the next step, which is to put together an "end-to-end" product that can acquire data, manipulate (process) and render results (visualize).  On the surface, this task might seem daunting at first, but remember how we tackle the first homework assignment in class: we take one component at a time.</p>
@@ -54,7 +56,7 @@
   <li>The best configuration for cell tower placement is chosen base best coverage result</li>
 </ul>
 
-<p>Coverage rate is calculated as percentage of the road that has signal.  Consider the following example a road that has three segments and each segment is discretized into 100 points:</li>
+<p>Coverage rate is calculated as percentage of the road that has signal.  Consider the following example of a road that has three segments and each segment is discretized into 100 points:</li>
 
 <ul>
   <li>Segment $s_1$ has 25 discretization points without a signal</li>
@@ -68,7 +70,7 @@ $$
   C = \frac{75 + 50}{300} = 42 \%
 $$
 
-<p>The above example assumes that all segments are of the same length.  This not the case.  In fact, as we've demonstrated in class that using a fixed $K$ for discretization is not going to work for those segments are longer than others.  So let us consider a better model for discretization by fixing the distance between discretization points: $\delta = 0.001$.  This will invariably require that you rewrite (overide) the discretization method to take $\delta$ as an argument and that the value $K$ is calculated from the distance between two points.</p>
+<p>The above example assumes that all segments are of the same length.  This not the case.  In fact, as we've demonstrated in class that using a fixed $K$ for discretization is not going to work for those segments are longer than others.  So let us consider a better model for discretization by fixing the distance between discretization points: $\delta = 0.001$.  This will invariably require that you rewrite (overide) the discretization method to take $\delta$ as an argument and calculate $K$.</p>
 
 <h4>Report File</h4>
 
@@ -76,9 +78,23 @@ $$
 
 <ul>
   <li>Listing of the cell towers, their position, radius, and the roads they cover</li>
-  <li>The roads must be identified names</li>
-  <li>The final determination if the placement of the towers sufficient cover all roads</li>
+  <li>The roads must be identified names and each road will display the percentage of coverage</li>
+  <li>The final determination if the placement of the towers sufficient cover all roads: "success" or "dropsignal"</li>
 </ul>
+
+<p>So an example report file would look like this:</p>
+
+<div class="code"><pre>
+C 1 100.01 200.01 0.04 
+  40%	Valley Blvd
+  25%	Garfield Ave
+  10%	Rosemead Blvd
+c 2 102.10 200.2 0.09
+  100%  Rosemead Blvd
+  10%   Garfield
+  40%   Valley Blvd
+drop signal
+</pre></div>
 
 <h3>Analysis Task</h3>
 
@@ -87,7 +103,12 @@ $$
 <ul>
   <li>What is the overall time complexity of your algorithm? Please use $O(cn^k)$ notation</li>
   <li>You should run timing experiment to support claim above; for example if you claim $O(n)$ then show how your timing scale linearly as the number of points or cell tower grows</li>
-  <li>Run experiment by varying $\sigma = \{ 0.1, 0.2, 0.3, 0.4, 0.5 \}$ and try for each of the $\sigma$'s vary the number of towers to be placed from 3 to 7</li>
+  <li>Run experiments and characterize performance:
+    <ol> 
+     <li>varying $\sigma = \{ 0.1, 0.2, 0.3, 0.4, 0.5 \}$ </li>
+     <li>for each $\sigma$'s vary the number of towers to be placed from 3 to 7</li>
+    </ol>
+  </li>
 </ul>
 
 <h3>Submission Guide</h3>
