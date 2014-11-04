@@ -51,7 +51,7 @@
 <p>We consider the following constraints when determining the placement of the cell towers.</p>
 
 <ul>
-  <li>Each tower can only be placed on a grid point in the <strong>osm</strong> file</li>
+  <li>Each tower can only be placed on a point in the <strong>osm</strong> file</li>
   <li>Each point can only accomodate at most one tower</li>
   <li>The best configuration for cell tower placement is chosen base best coverage result</li>
 </ul>
@@ -93,8 +93,14 @@ c 2 102.10 200.2 0.09
   100%  Rosemead Blvd
   10%   Garfield
   40%   Valley Blvd
-drop signal
 </pre></div>
+
+<p>Your report should report things as followed:</p>
+
+<ul>
+  <li>The first configuration that 100% coverage</li>
+  <li>If there is no configurations with 100% coverage then print the configuration that has best coverage</li>
+</ul>
 
 <h3>Analysis Task</h3>
 
@@ -116,8 +122,7 @@ drop signal
 <p>Please submit all your java source code and a runable jar file (<b>hw2.jar</b>).  It is highly recommended that you test your java program from the command line as follower:</p>
 
 <div class="code"><pre>
-java -jar hw2.jar -osm road.osm -out map.png \
-   -report report.txt -cellconfig cell.cfg
+java -jar hw2.jar road.osm map.png 5 0.1
 </pre></div>
 
 <p>If everything works as expected, then your program should generate the required files.</p>
