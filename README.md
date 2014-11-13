@@ -9,7 +9,7 @@ For homework 2 you should do the following:
 
 1. Use the provided `src/hw2` folder as your starting point.  You are free to use your own implementation but it might be challenging.
 
-2. Download 4 OSM files, each with different zoom level so that you'd have 4 different number of node sizes.  I recommend that you have 100 nodes, 200 nodes, 300 nodes, and 400 nodes.
+2. Download 3 OSM files, each with different zoom level so that you'd have 4 different number of node sizes.  I recommend that you have 100, 500, and 1000 nodes (or points).
 
 4. The placement of cell towers should be as followed
    (a) Find the road with the *most* number of points
