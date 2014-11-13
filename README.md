@@ -3,6 +3,43 @@ cs203-fall-2014
 
 Programming with Data Structure Fall 2014
 
+# Homework 2 (updates)
+
+For homework 2 you should do the following:
+
+1. Use the provided `src/hw2` folder as your starting point.  You are free to use your own implementation but it might be challenging.
+
+2. Download 4 OSM files, each with different zoom level so that you'd have 4 different number of node sizes.  I recommend that you have 100 nodes, 200 nodes, 300 nodes, and 400 nodes.
+
+4. The placement of cell towers should be as followed
+   (a) Find the road with the *most* number of points
+   (b) Place cell towers only along this road, i.e. the number of cell tower combinations is restricted to just that road
+
+Note that you will need to adopt the method `getAllCellConfigurations(...)` from `RoadNetwork` to `Road` because now instead of relying on the road network to get you all the possible combinations, you're relying on the road.  In particular you're going to select the road with the most points.
+
+5. Run experiment on the following combinations
+   (a) collect timing test for npoints = { 100, 500, 1000 } (or approximately there of depending on step 2 from above
+   (b) for each npoint, vary your sigma = { 0.2, 0.3, 0.4, 0.5 }
+   (c) you should have a report file for each of the above (total 9 report files)
+
+6. Each report file should print out only the best configuration:
+
+```
+Road Name: 
+P 1 x y
+p 2 x y
+p 3 x y
+C 1 x y sigma
+C 2 x y sigma
+time: 10 ms
+```
+
+7. Using the data collected from your report file and produce a graph that has `x` axis as the number of points, and the `y` axis as the time.  There will be three curves (lines) with N (the number of cell towers) = { 2, 3, 4}.
+
+8. Discuss your finding with regards to the time that you've collected.  For example, what kind of observations can be derived from the algorithm's performance?
+
+*BONUS*  The team that modifies the `RoadNetwork` in such a way that the roads are stored as a `PriorityQueue` where the ordering of the priority is organized by the number of points will get bonus credit.  So that when you can simply ask a `RoadNetwork` object for the road with the largest number points without having to do a search through each road.
+
 # Lab 5
 
 We will now redo homework 1 using the generic data structure.
