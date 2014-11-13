@@ -34,7 +34,7 @@ C 2 x y sigma
 time: 10 ms
 ```
 
-7. Using the data collected from your report file and produce a graph that has `x` axis as the number of points, and the `y` axis as the time.  There will be three curves (lines) with N (the number of cell towers) = { 2, 3, 4}.
+7. Using the data collected from your report file and produce 4 graphs (one for each sigma) that has `x` axis as the number of points, and the `y` axis as the time.  Each graph will contain three curves (lines).  Each curve represent differnt the number of cell towers.  So you'd have one curve for N = 2, N = 3, N = 4.  Note that it might not be possible to compute time for N = 4, if so try to adjust/tune your parameters so that completion is possible.
 
 8. Discuss your finding with regards to the time that you've collected.  For example, what kind of observations can be derived from the algorithm's performance?
 
