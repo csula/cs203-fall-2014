@@ -3,12 +3,12 @@ package hw2;
 import library.StdDraw;
 
 public class Point extends GeometricObject {
-    int id;
+    long id;
     double x, y;
 
     public Point() { }
 
-    public Point(int id, double x, double y) {
+    public Point(long id, double x, double y) {
         this.id = id; this.x = x; this.y = y;
     }
 
@@ -16,8 +16,8 @@ public class Point extends GeometricObject {
         // maybe easier to draw a line between other and me...
     }
 
-    double Xr() { return x;	}
-    double Yr() { return y;	}
+    double Xr() { return x; }
+    double Yr() { return y; }
 
     double Xs() { 
         return (Xr() - Boundaries.xmin)/(Boundaries.xmax - Boundaries.xmin);
@@ -28,17 +28,20 @@ public class Point extends GeometricObject {
     }
 
     public Point(String line) {
-        String[] cols = line.split("\\s+"); // regex for white spaces
-        this.id = Integer.parseInt(cols[0]);
-        this.x = Double.parseDouble(cols[1]);
-        this.y = Double.parseDouble(cols[2]);
     }
 
-    public Point(String line, boolean b) {
-        // write this construct such it takes a string that begins
-        // with "<node ... " and extract its x, y values;
+    public Point(String line, boolean isOSM) {
+        if (isOSM) {
+            this.id = Long.parseLong( OSM.extractStringFromVal(line, "id"));
+            this.x =  Double.parseDouble( OSM.extractStringFromVal(line, "lon"));
+            this.y =  Double.parseDouble( OSM.extractStringFromVal(line, "lat"));
+        }
     }
 
+    public String toString() {
+        return "P " + id + " " + x + " " + y;
+    }
+    
     public void draw() {
         StdDraw.filledRectangle(Xs(), Ys(), 0.01, 0.01);
     }
@@ -52,7 +55,7 @@ public class Point extends GeometricObject {
     }
 
     public void dump() {
-        System.out.printf("p[%d] = (%f,%f) => (%f,%f)\n", id, 
+        System.out.printf("p[%ld] = (%f,%f) => (%f,%f)\n", id, 
                 Xr(), Yr(), Xs(), Ys());
     }
 }

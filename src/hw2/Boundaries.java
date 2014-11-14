@@ -14,8 +14,10 @@ public class Boundaries {
     }
 
     static void update(String line) {
-        xmin = Double.parseDouble( OSM.extractStringFromVal(line, "minlat") );
-        // you need to do the rest!
+        ymin = Double.parseDouble( OSM.extractStringFromVal(line, "minlat") );
+        xmin = Double.parseDouble( OSM.extractStringFromVal(line, "minlon") );
+        ymax = Double.parseDouble( OSM.extractStringFromVal(line, "maxlat") );
+        xmax = Double.parseDouble( OSM.extractStringFromVal(line, "maxlon") );
     }
 
     public static void dump() {

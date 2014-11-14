@@ -6,7 +6,30 @@ import java.util.Collection;
 public class Road {
     java.util.ArrayList<Segment> segments = 
             new java.util.ArrayList<Segment>();
+    java.util.ArrayList<Point> points = 
+            new java.util.ArrayList<Point>();
+    
     String name;
+    long id;
+
+    public Road(String line, boolean isOSM) {
+        if (isOSM) {
+            String idStr = OSM.extractStringFromVal(line, "id");
+            id = Long.parseLong(idStr);
+        }
+    }
+
+    public Road() {
+
+    }
+    
+    public String toString() {
+        String buffer = "R " + id;
+        for (Point p : points) {
+            buffer += " " + p.id;
+        }
+        return buffer;
+    }
 
     public void addSegment(Segment segment) {
         segments.add( segment );
@@ -52,7 +75,6 @@ public class Road {
     }
 
     public Collection<? extends Point> getAllPoints() {
-        // TODO Auto-generated method stub
         return null;
     }
 }
