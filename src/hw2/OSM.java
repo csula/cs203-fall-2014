@@ -67,7 +67,7 @@ public class OSM {
         try {
             scanner = new Scanner( file );
             while ( scanner.hasNext() ) {
-                String line = scanner.nextLine().replace("^\\s+", "");
+                String line = scanner.nextLine();
                 if (line.contains("<way")) {
                     Road road = new Road(line, true);
                     while (!line.contains("</way")) {
