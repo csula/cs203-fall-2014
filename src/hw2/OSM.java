@@ -31,7 +31,7 @@ public class OSM {
             scanner = new Scanner( file );
             while ( scanner.hasNext() ) {
                 String line = scanner.nextLine();
-                if (line.startsWith(" <bounds")) {
+                if (line.contains("<bounds")) {
                     Boundaries.update(line);
                 }
             }
@@ -61,7 +61,8 @@ public class OSM {
         return nodes;
     }
 
-    public static HashMap<Long,Road> extractWays(File file, HashMap<Long, Point> nodes) {
+    public static HashMap<Long,Road> 
+    extractWays(File file, HashMap<Long, Point> nodes) {
         HashMap<Long,Road> ways = new HashMap<Long,Road>();
         
         try {
@@ -73,8 +74,7 @@ public class OSM {
                     while (!line.contains("</way")) {
                         line = scanner.nextLine();
                         if (line.contains("<nd")) {
-                            String nodeIdRefStr = OSM.extractStringFromVal(line, "ref");
-                            long nodeIdRef = Long.parseLong(nodeIdRefStr);
+                            long nodeIdRef = Long.parseLong(OSM.extractStringFromVal(line, "ref"));
                             Point p = nodes.get(nodeIdRef);
                             assert (p != null);
                             road.points.add( p );
@@ -111,7 +111,6 @@ public class OSM {
             e.printStackTrace();
         } finally {
             try {
-                // Close the writer regardless of what happens...
                 writer.close();
             } catch (Exception e) {
             }
