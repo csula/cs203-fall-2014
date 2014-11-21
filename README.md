@@ -20,7 +20,7 @@ Note that you will need to adopt the method `getAllCellConfigurations(...)` from
 5. Run experiment on the following combinations
    (a) collect timing test for npoints = { 100, 500, 1000 } (or approximately there of depending on step 2 from above
    (b) for each npoint, vary your sigma = { 0.2, 0.3, 0.4, 0.5 }
-   (c) you should have a report file for each of the above (total 9 report files)
+   (c) you should have a report file for each of the above (total 12 report files)
 
 6. Each report file should print out only the best configuration:
 
