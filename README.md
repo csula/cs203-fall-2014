@@ -3,6 +3,74 @@ cs203-fall-2014
 
 Programming with Data Structure Fall 2014
 
+# Project
+
+1. YOU Ask a question (project proposal)
+
+2. YOU Answer the question
+
+3. YOU Prove your answer: (a) mathematically, (b) visually
+
+For the project, you will need to submit a project proposal by 28 November 2014.  Your team's project proposal submission should be posted to the discussion board.  You will not have an opportunity to present the proejct on 5 December 2014 unless you get explicit approval.  The project proposal is a simply taking any of the homework and come up with an interesting question.  You will code an answer to the question and demonstrate what you've done to answer the question.
+
+# Homework 4
+
+Please use lab 8 as an example and implement the checkcoverage algorithm (from homework 2) in parallel.  Your demo will show that your homework 4 can produce the same result as homework 2, however the performance is better because you're executing this in parallel.
+
+# Homework 3
+
+Homework 3 will require that you impement an algorithm that will bring the user from one location to the next.  Program will be executed as followed:
+
+```
+java -jar hw3.jar map.osm map.png report.txt x1 y1 x2 y2
+```
+
+This program will read the `map.osm` file and generate two files: (1) `map.png` which contains a map with the path highlighted (thicker line or a different color, and (2) `report.txt` which contains a listing of all the point along this path.  Your report file now contains the following information:
+
+```
+p s x y
+p e x p
+p id x y
+p id x y
+...
+
+```
+
+Here is an overall strategy to attack homework 3:
+
+1. Find the nearest start point and end point by asking the road network for the nearest point to (x,y)
+
+```
+Point point = roadNetwork.findNearestPoint(double lon, double lat);
+```
+
+
+2. Come up with a formulation for "intersections": (1) a `vextex` is a point (2) a point now has a list of edges, (3) a `segment` is an edge
+
+hint: should be able to ask a point, who are your neighbors?
+
+3. Implement `search(...)`
+
+```
+ArrayList<Segment> segments = roadNetwork.search(p1, p2);
+```
+
+Or
+
+```
+ArrayList<Point> points = roadNetwork.search(p1, p2);
+```
+
+
+# Lab 8
+
+This lab shows how to implement a multithreaded program.  The main idea is here is that you'd create a task object and the thread object must implement a `runnable` interface.  This interface allows for the thread to execute the task object's `run()` method.  Once you understand the thread model, for this simple object, it's fairly simple to do homework 4.
+
+
+# Lab 7
+
+For Lab 7, we implemented a very simple bubble sorting algorithm.  Please note that this algorithm is O(n^2).  Although it's simple to understand, its performance is horrible.  Generally speaking.  You should not have to implementing a sorting algorithm because there are plenty of existing code that can do sorting fairly efficient.
+
 # Homework 2 (updates)
 
 For homework 2 you should do the following:
