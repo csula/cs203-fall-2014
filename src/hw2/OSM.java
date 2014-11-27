@@ -25,7 +25,7 @@ public class OSM {
 
         return null;
     }
-    
+
     public static void extractBoundaries(File file) {
         try {
             scanner = new Scanner( file );
@@ -43,7 +43,7 @@ public class OSM {
 
     public static HashMap<Long,Point> extractNodes(File file) {
         HashMap<Long,Point> nodes = new HashMap<Long,Point>();
-        
+
         try {
             scanner = new Scanner( file );
             while ( scanner.hasNext() ) {
@@ -57,14 +57,14 @@ public class OSM {
             ex.printStackTrace();
             System.exit(-1);
         }
-        
+
         return nodes;
     }
 
-    public static HashMap<Long,Road> 
+    public static HashMap<Long, Road> 
     extractWays(File file, HashMap<Long, Point> nodes) {
         HashMap<Long,Road> ways = new HashMap<Long,Road>();
-        
+
         try {
             scanner = new Scanner( file );
             while ( scanner.hasNext() ) {
@@ -90,12 +90,12 @@ public class OSM {
 
         return ways;
     }
-    
+
     public static void OSM2Text(File osmFile, File textFile) {
         extractBoundaries(osmFile);
         HashMap<Long,Point> nodes = extractNodes(osmFile);
         HashMap<Long,Road> ways = extractWays(osmFile, nodes);
-        
+
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter(textFile));
@@ -115,15 +115,15 @@ public class OSM {
             } catch (Exception e) {
             }
         }
-        
+
     }
-    
+
     public static void main(String[] args) {
         try {
             File osmFile = new File(args[0]);
             File textFile = new File(args[1]);
             OSM2Text(osmFile, textFile);
-            
+
         } catch (Exception ex) {
             System.out.println("usage: prog <osm file> <text file>");
         }
