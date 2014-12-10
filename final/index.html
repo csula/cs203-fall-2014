@@ -18,8 +18,23 @@
 
 <h3>Programming Part</h3>
 
-<p>Consider the source code here: http://github.com/csula/.  Your task is to write a <b>SocialNetwork</b> class and fill in the missing information.</p>
+<p>Consider the source code here: <a href="https://github.com/csula/cs203-fall-2014/tree/master/src/quiz1">final</a>.  Your task is to write update the file <b>Relationship.java</b>:</p>
 
+<ol>
+  <li> Write the code for the <b>SocialNetwork(...) { ... }</b> constructor such that it reads in the social network data file. </li>
+  <li> Write the code for the <b>getRelationshipType(...) { ... }</b> method such that it determines the relationship type between the two names.  If there is no relationship then a -1 is returned. </li>
+  <li> Write the code for the <b>hasConnection(...) { ... }</b> method such that it determines if there is a connection between two names.  A connection can be direct or indirect.  For example, person A has a relationship with person B, and person B has a relationship with person C.  Therefore, person A has a connection to person C. </li>
+</ol>
+
+<p>You are <b>NOT</b> allowed to modify the abstract classes, i.e. <b>Graph</b>, <b>Edge</b>, and <b>Vertex</b>.  You may change <b>Person</b>, <b>Relationship</b>, and <b>SocialNetwork</b>.</p>
+
+<h3>Analysis Part</h3>
+
+<p>1. What is the time complexity (use Big O) for determining the relationship type given two names? </p>
+
+<p>2. What is the time complexity (use Big O) for determining if there is a connection between two names?</p>
+
+<p>3. Assuming that you can modify any of the classes, recommend a way in which we can improve the performance. Please be as detailed as possible.</p>
 
 </body>
 </html>
